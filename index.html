@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<title>PAC · Éminéo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="PAC — Parcours d'Activation des Compétences · Éminéo"/>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B2B2D'/><path d='M10 22 L16 10 L22 22' stroke='%235DE298' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='16' cy='10' r='2' fill='%235DE298'/></svg>"/>
+<style>
+:root {
+  --abysse:  #0B2B2D;
+  --petrole: #134547;
+  --menthe:  #5DE298;
+  --givre:   #E3FFF0;
+  --saumon:  #E89B77;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--abysse);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 32px 48px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logo {
+  width: 36px; height: 36px;
+  background: var(--petrole);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(93,226,152,0.25);
+}
+.logo svg { display: block; }
+.brand { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: rgba(255,255,255,0.9); }
+.brand span { color: var(--menthe); }
+
+.hero {
+  padding: 72px 48px 48px;
+  max-width: 820px;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--menthe);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--menthe);
+}
+.hero-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  max-width: 560px;
+}
+
+/* ── Grille titres ── */
+.titres-grid {
+  padding: 0 48px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+}
+
+.titre-card {
+  background: var(--petrole);
+  border: 1px solid rgba(93,226,152,0.12);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.titre-card.active {
+  cursor: pointer;
+}
+.titre-card.active:hover {
+  border-color: rgba(93,226,152,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.titre-card.coming {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Accent bar */
+.titre-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--menthe), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.titre-card.active:hover::before { opacity: 1; }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.card-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-active {
+  background: rgba(93,226,152,0.15);
+  color: var(--menthe);
+  border: 1px solid rgba(93,226,152,0.3);
+}
+.badge-soon {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-rncp {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+.card-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+  flex: 1;
+}
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.card-blocs {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--font-mono);
+}
+.card-blocs strong {
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+.card-arrow {
+  width: 28px; height: 28px;
+  background: rgba(93,226,152,0.12);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--menthe);
+  transition: background 0.2s, transform 0.2s;
+}
+.titre-card.active:hover .card-arrow {
+  background: rgba(93,226,152,0.25);
+  transform: translateX(2px);
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: auto;
+  padding: 24px 48px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+  font-family: var(--font-mono);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero       { animation: fadeUp 0.5s ease both; }
+.titres-grid { animation: fadeUp 0.5s 0.1s ease both; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="header">
+    <div class="logo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 14 L10 6 L15 14" stroke="#5DE298" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="6" r="1.5" fill="#5DE298"/>
+      </svg>
+    </div>
+    <div class="brand">Éminéo · <span>PAC</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Parcours d'Activation des Compétences</div>
+    <h1 class="hero-title">Choisissez<br>votre <em>titre RNCP</em></h1>
+    <p class="hero-sub">Sélectionnez le titre correspondant à votre formation. Vous accéderez aux blocs de compétences certifiants disponibles pour votre parcours.</p>
+  </section>
+
+  <div class="titres-grid">
+
+    <!-- MSMC -->
+    <div class="titre-card active" onclick="window.location.href='https://msmc-pac.vercel.app'">
+      <div class="card-top">
+        <div class="card-rncp">RNCP 38504</div>
+        <div class="card-badge badge-active">Disponible</div>
+      </div>
+      <div class="card-title">Manager de la Stratégie &amp; de la Communication</div>
+      <div class="card-desc">Tronc commun BC1–BC3 + spécialisation BC5–BC6. Univers Lumio Health — wearables medtech parisienne.</div>
+      <div class="card-meta">
+        <div class="card-blocs"><strong>5</strong> blocs · BC1 BC2 BC3 BC5 BC6</div>
+        <div class="card-arrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CDRH -->
+    <div class="titre-card active" onclick="window.location.href='https://cdrh-pac.vercel.app'">
+      <div class="card-top">
+        <div class="card-rncp">RNCP 38506</div>
+        <div class="card-badge badge-active">Disponible</div>
+      </div>
+      <div class="card-title">Chargé du Développement des Ressources Humaines</div>
+      <div class="card-desc">4 blocs couvrant le recrutement, la formation, la gestion des compétences et la relation sociale. Univers Lumio Health.</div>
+      <div class="card-meta">
+        <div class="card-blocs"><strong>4</strong> blocs · BC1 BC2 BC3 BC4</div>
+        <div class="card-arrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- MMD -->
+    <div class="titre-card coming">
+      <div class="card-top">
+        <div class="card-rncp">RNCP —</div>
+        <div class="card-badge badge-soon">Bientôt</div>
+      </div>
+      <div class="card-title">Master Marketing Digital</div>
+      <div class="card-desc">Blocs en cours de production. Disponible prochainement dans le parcours PAC.</div>
+      <div class="card-meta">
+        <div class="card-blocs"><strong>—</strong> blocs à venir</div>
+      </div>
+    </div>
+
+    <!-- MDO -->
+    <div class="titre-card coming">
+      <div class="card-top">
+        <div class="card-rncp">RNCP —</div>
+        <div class="card-badge badge-soon">Bientôt</div>
+      </div>
+      <div class="card-title">Master Direction des Organisations</div>
+      <div class="card-desc">Blocs en cours de production. Disponible prochainement dans le parcours PAC.</div>
+      <div class="card-meta">
+        <div class="card-blocs"><strong>—</strong> blocs à venir</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-text">Éminéo · Usage pédagogique interne · Environnement fictif</div>
+    <div class="footer-text">v2.0 · 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
