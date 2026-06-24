@@ -246,9 +246,8 @@ body {
   max-width: 520px;
 }
 .podcast-players {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  display: block;
+  max-width: 520px;
 }
 .podcast-card {
   background: var(--petrole);
@@ -316,25 +315,12 @@ audio {
         <div class="podcast-card-header">
           <div class="podcast-icon">🎧</div>
           <div>
-            <div class="podcast-label">Version courte</div>
-            <div class="podcast-duration">~8 min · L'essentiel de Lumio Health</div>
+            <div class="podcast-label">Lumio Health — présentation</div>
+            <div class="podcast-duration">~8 min · Entreprise, produit et enjeux stratégiques</div>
           </div>
         </div>
         <audio controls preload="none" style="width:100%">
           <source src="/podcast_lumio_court.mp3" type="audio/mpeg"/>
-        </audio>
-      </div>
-
-      <div class="podcast-card">
-        <div class="podcast-card-header">
-          <div class="podcast-icon">🎙</div>
-          <div>
-            <div class="podcast-label">Version longue</div>
-            <div class="podcast-duration">~20 min · Débat stratégique B2B vs B2C</div>
-          </div>
-        </div>
-        <audio controls preload="none" style="width:100%">
-          <source src="/podcast_lumio_long.mp3" type="audio/mpeg"/>
         </audio>
       </div>
 
