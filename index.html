@@ -224,6 +224,67 @@ body {
 }
 .hero       { animation: fadeUp 0.5s ease both; }
 .titres-grid { animation: fadeUp 0.5s 0.1s ease both; }
+
+/* ── Section podcast ── */
+.podcast-section {
+  padding: 0 48px 48px;
+  max-width: 820px;
+}
+.podcast-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--saumon);
+  margin-bottom: 10px;
+}
+.podcast-intro {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+.podcast-players {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.podcast-card {
+  background: var(--petrole);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.podcast-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.podcast-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.podcast-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 2px;
+}
+.podcast-duration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+}
+/* Player audio natif — teinte sombre */
+audio {
+  border-radius: 6px;
+  height: 36px;
+  filter: invert(1) hue-rotate(180deg) brightness(0.85);
+}
 </style>
 </head>
 <body>
@@ -243,6 +304,41 @@ body {
     <div class="hero-eyebrow">Parcours d'Activation des Compétences</div>
     <h1 class="hero-title">Choisissez<br>votre <em>titre RNCP</em></h1>
     <p class="hero-sub">Sélectionnez le titre correspondant à votre formation. Vous accéderez aux blocs de compétences certifiants disponibles pour votre parcours.</p>
+  </section>
+
+  <!-- ── Section podcast ── -->
+  <section class="podcast-section">
+    <div class="podcast-eyebrow">Avant de commencer</div>
+    <p class="podcast-intro">Écoutez l'un de ces podcasts pour découvrir l'entreprise fictive dans laquelle vous allez travailler.</p>
+    <div class="podcast-players">
+
+      <div class="podcast-card">
+        <div class="podcast-card-header">
+          <div class="podcast-icon">🎧</div>
+          <div>
+            <div class="podcast-label">Version courte</div>
+            <div class="podcast-duration">~8 min · L'essentiel de Lumio Health</div>
+          </div>
+        </div>
+        <audio controls preload="none" style="width:100%">
+          <source src="/podcast_lumio_court.mp3" type="audio/mpeg"/>
+        </audio>
+      </div>
+
+      <div class="podcast-card">
+        <div class="podcast-card-header">
+          <div class="podcast-icon">🎙</div>
+          <div>
+            <div class="podcast-label">Version longue</div>
+            <div class="podcast-duration">~20 min · Débat stratégique B2B vs B2C</div>
+          </div>
+        </div>
+        <audio controls preload="none" style="width:100%">
+          <source src="/podcast_lumio_long.mp3" type="audio/mpeg"/>
+        </audio>
+      </div>
+
+    </div>
   </section>
 
   <div class="titres-grid">
