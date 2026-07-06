@@ -154,6 +154,11 @@ body {
   color: rgba(255,255,255,0.35);
   border: 1px solid rgba(255,255,255,0.1);
 }
+.badge-eol {
+  background: rgba(232,155,119,0.15);
+  color: var(--saumon);
+  border: 1px solid rgba(232,155,119,0.35);
+}
 
 .card-rncp {
   font-family: var(--font-mono);
@@ -308,7 +313,7 @@ audio {
   <!-- ── Section podcast ── -->
   <section class="podcast-section">
     <div class="podcast-eyebrow">Avant de commencer</div>
-    <p class="podcast-intro">Écoutez l'un de ces podcasts pour découvrir l'entreprise fictive dans laquelle vous allez travailler.</p>
+    <p class="podcast-intro">Écoutez ce podcast pour découvrir l'entreprise fictive dans laquelle vous allez travailler.</p>
     <div class="podcast-players">
 
       <div class="podcast-card">
@@ -330,12 +335,12 @@ audio {
   <div class="titres-grid">
 
     <!-- MSMC -->
-    <div class="titre-card active" onclick="window.open('https://msmc-pac.vercel.app','_blank')">
+    <div class="titre-card active" role="link" tabindex="0" aria-label="Ouvrir le portail du titre" onclick="window.open('https://msmc-pac.vercel.app','_blank')" onkeydown="if(event.key==='Enter')this.click()">
       <div class="card-top">
         <div class="card-rncp">RNCP 38504</div>
         <div class="card-badge badge-active">Disponible</div>
       </div>
-      <div class="card-title">Manager de la Stratégie &amp; de la Communication</div>
+      <div class="card-title">Manager des stratégies marketing et communication</div>
       <div class="card-desc">Tronc commun BC1–BC3 + spécialisation BC5–BC6. Univers Lumio Health — wearables medtech parisienne.</div>
       <div class="card-meta">
         <div class="card-blocs"><strong>5</strong> blocs · BC1 BC2 BC3 BC5 BC6</div>
@@ -346,13 +351,13 @@ audio {
     </div>
 
     <!-- CDRH -->
-    <div class="titre-card active" onclick="window.open('https://cdrh-pac.vercel.app','_blank')">
+    <div class="titre-card active" role="link" tabindex="0" aria-label="Ouvrir le portail du titre" onclick="window.open('https://cdrh-pac.vercel.app','_blank')" onkeydown="if(event.key==='Enter')this.click()">
       <div class="card-top">
         <div class="card-rncp">RNCP 38438</div>
         <div class="card-badge badge-active">Disponible</div>
       </div>
-      <div class="card-title">Chargé du Développement des Ressources Humaines</div>
-      <div class="card-desc">4 blocs couvrant le recrutement, la formation, la gestion des compétences et la relation sociale. Univers Lumio Health.</div>
+      <div class="card-title">Chargé de développement des ressources humaines</div>
+      <div class="card-desc">4 blocs couvrant l'administration du personnel, les relations sociales et la QVCT, le recrutement et le développement des compétences. Univers Lumio Health.</div>
       <div class="card-meta">
         <div class="card-blocs"><strong>4</strong> blocs · BC1 BC2 BC3 BC4</div>
         <div class="card-arrow">
@@ -362,12 +367,12 @@ audio {
     </div>
 
     <!-- MMD -->
-    <div class="titre-card active" onclick="window.open('https://mmd-pac.vercel.app','_blank')">
+    <div class="titre-card active" role="link" tabindex="0" aria-label="Ouvrir le portail du titre" onclick="window.open('https://mmd-pac.vercel.app','_blank')" onkeydown="if(event.key==='Enter')this.click()">
       <div class="card-top">
         <div class="card-rncp">RNCP 40170</div>
         <div class="card-badge badge-active">Disponible</div>
       </div>
-      <div class="card-title">Manager en Stratégie et Développement de Projet Digital</div>
+      <div class="card-title">Manager en stratégie et développement de projet digital</div>
       <div class="card-desc">5 blocs couvrant la stratégie digitale, le pilotage de projet et les spécialisations métier. Univers Lumio Health.</div>
       <div class="card-meta">
         <div class="card-blocs"><strong>5</strong> blocs · BC1 BC2 BC3 BC4-I BC4-II</div>
@@ -378,13 +383,13 @@ audio {
     </div>
 
     <!-- MDO -->
-    <div class="titre-card active" onclick="window.open('https://mdo-pac.vercel.app','_blank')">
+    <div class="titre-card active" role="link" tabindex="0" aria-label="Ouvrir le portail du titre" onclick="window.open('https://mdo-pac.vercel.app','_blank')" onkeydown="if(event.key==='Enter')this.click()">
       <div class="card-top">
         <div class="card-rncp">RNCP 35280</div>
-        <div class="card-badge badge-active">Disponible</div>
+        <div class="card-badge badge-eol">Fin de droits</div>
       </div>
-      <div class="card-title">Manager la stratégie globale d'une organisation</div>
-      <div class="card-desc">4 blocs couvrant la stratégie globale, le pilotage opérationnel, le management des équipes et le développement commercial. Univers Lumio Health.</div>
+      <div class="card-title">Manager des organisations</div>
+      <div class="card-desc">4 blocs couvrant la stratégie globale, le pilotage opérationnel, le management des équipes et le développement commercial. Univers Lumio Health. Accès maintenu pour les candidats en fin de droits.</div>
       <div class="card-meta">
         <div class="card-blocs"><strong>4</strong> blocs · BC1 BC2 BC3 BC4</div>
         <div class="card-arrow">
